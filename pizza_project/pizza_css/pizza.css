@@ -1,3 +1,19 @@
+body {
+    opacity: 1;
+    transition: 1s opacity;
+}
+
+body.fade-out {
+    opacity: 0;
+    transition: none;
+}
+
+#pizzaform {
+    width:400px;
+    height:470px;
+    margin:10px auto;
+}
+
 #menuBG {
     width:400px;
     height:470px;

@@ -8,8 +8,15 @@
         <link rel="stylesheet" type="text/css" href="pizza_css/pizza.css"/>
     </head>
     <body id="body">
+        <script>
+            document.body.classList.add('fade-out');
+            window.addEventListener('DOMContentLoaded', () => {
+                document.body.classList.remove('fade-out');
+            });
+        </script>
+
         <div id="menuBG">
-            <h1 style="margin:0 0px 0 20px;">Pizza Drill Tutorial</h1>
+            <h1 style="margin:0 0px 0 20px; font-size:10vw;">Pizza Drill Tutorial</h1>
             <input id="btnOrder" type="button" onclick="getReceipt()" value="Place Order">
             <form id="frmMenu">
                 <div class="menu left">
@@ -48,6 +55,27 @@
                     <div id="totalPrice"></div>
                 </div>
             </form>
+        </div>
+
+        <div id="pizzaform" action="" onsubmit="return validateForm()" method="post">
+            <form name="pizzaForm">
+                <label for="name">Name for Order:</label>
+                <input type="text" id="name" name="name"><br>
+                <label for="number">Phone Number:</label>
+                <input type="tel" id="number" name="number" value="000-123-4567" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"><br><br>
+
+                <input type="submit" value="Confirm Order">
+            </form>
+
+            <script>
+                function validateForm() {
+                    let x = document.forms['pizzaForm']['number'].value;
+                    if(x == "") {
+                        alert('Your phone number must be filled out');
+                        return false;
+                    }
+                }
+            </script>
         </div>
     </body>
 </html>
